@@ -1,0 +1,45 @@
+[user]
+    name = novatech
+    email = azwan.ali@pm.me
+    signingkey = FCC0806FE0313C80
+[commit]
+    gpgSign = true
+[core]
+    editor = vim
+    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = ~/.gitignore
+[web]
+    browser = firefox
+[rerere]
+    enabled = 1
+    autoupdate = 1
+[push]
+    default = matching
+[color]
+    ui = true
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[gitflow "prefix"]
+    feature = feature-
+    release = release-
+    hotfix = hotfix-
+    support = support-
+    versiontag = v
+[help]
+    autocorrect = 1

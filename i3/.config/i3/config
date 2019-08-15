@@ -3,8 +3,6 @@ set $mod Mod4
 
 # font
 font pango:InconsolataGo Nerd Font 8
-#font pango:SF Pro Display 12
-#font pango:DejaVuSansMono Nerd Font Mono 11
 
 # thin borders
 hide_edge_borders smart
@@ -28,6 +26,7 @@ for_window[class="^.*$"] border pixel 0
 # gaps
 gaps inner 10
 gaps outer -1
+
 # enable gaps only when workspace have more than one container
 smart_gaps on
 
@@ -40,11 +39,8 @@ bindsym $mod+Right focus right
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 
-# lock
+# lockscreen
 bindsym $mod+l exec i3lock --color 1e2541
-
-# glava
-bindsym $mod+g exec --no-startup-id glava --desktop
 
 # move focused window
 bindsym $mod+Shift+Left move left
@@ -115,19 +111,19 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3
-bindsym $mod+Shift+e exec /home/wea/.config/i3/scripts/exit_menu
+bindsym $mod+Shift+e exec ~/.config/i3/scripts/exit_menu
 
 # resize window (you can also use the mouse for that)
 # tips: use xmodmap -pke to find existing key mapping
 mode "resize" {
     bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-    bindsym Escape mode "default"
-    bindsym KP_Enter mode "default"
-    bindsym $mod+r mode "default"
+        bindsym Escape mode "default"
+        bindsym KP_Enter mode "default"
+        bindsym $mod+r mode "default"
 }
 
 # resize mode
@@ -163,14 +159,14 @@ for_window [class="firefox" instance="Navigator"] focus, floating disable
 for_window [class="firefox" instance="Places"] floating enable
 for_window [class="Termite"] focus, border pixel 1
 for_window [class="Pcmanfm"] focus
-for_window [class="Code"] focus
+for_window [class="code-oss"] focus
 for_window [class="TelegramDesktop"] focus
 
 
 # default workspaces
 assign [class="Termite"] $workspace1
 assign [class="firefox"] $workspace2
-assign [class="Code"] $workspace4
+assign [class="code-oss"] $workspace4
 assign [class="TelegramDesktop"] $workspace9
 
 # key-bindings
@@ -183,6 +179,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1
+bindsym XF86PowerOff exec --no-startup-id ~/.config/i3/scripts/exit_menu
 bindsym Print exec xfce4-screenshooter -f
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+t exec i3-sensible-terminal
@@ -190,7 +187,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id ~/.config/i3/scripts/rofi_app
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#1e2541' -nf '#eeffff' -sb '#c792ea' -sf '#eeffff' -fn 'InconsolataGo Nerd Font:bold:pixelsize=26' -l 10"
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 ## startup
-exec --no-startup-id unclutter -b
 exec_always --no-startup-id ~/.config/i3/scripts/startup
+
 

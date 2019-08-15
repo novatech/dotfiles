@@ -7,3 +7,4 @@ if [[ "${SSID_NAME}" != "" ]]; then
 fi
 
 notify-send "${MSG}"
+

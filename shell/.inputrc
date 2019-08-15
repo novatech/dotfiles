@@ -1,0 +1,33 @@
+$include /etc/inputrc
+
+set bell-style none
+set colored-stats on
+set completion-ignore-case on
+set completion-map-case on
+set completion-prefix-display-length 3
+set page-completions off
+set completion-query-items 500
+set skip-completed-text on
+set match-hidden-files off
+set mark-symlinked-directories on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+set echo-control-characters off
+set expand-tilde off
+set history-preserve-point on
+set editing-mode vi
+
+set input-meta on
+set output-meta on
+set convert-meta off
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+"\e[Z": menu-complete
+
+"\e[3~": delete-char
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
