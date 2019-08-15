@@ -1,0 +1,172 @@
+[colors]
+xbg = ${xrdb:background}
+xfg = ${xrdb:foreground}
+black = ${xrdb:color0}
+black2 = ${xrdb:color8}
+red = ${xrdb:color1}
+red2 = ${xrdb:color9}
+green = ${xrdb:color2}
+green2 = ${xrdb:color10}
+yellow = ${xrdb:color3}
+yellow2 = ${xrdb:color11}
+blue = ${xrdb:color4}
+blue2 = ${xrdb:color12}
+magenta = ${xrdb:color5}
+magenta2 = ${xrdb:color13}
+cyan = ${xrdb:color6}
+cyan2 = ${xrdb:color14}
+white = ${xrdb:color7}
+white2 = ${xrdb:color15}
+transparent = #ee1e2541
+
+[bar/bar]
+dpi = 96
+width = 100%
+height = 30
+border-size = 0
+bottom = false
+monitor = eDP1
+;wm-restack = i3
+override-redirect = false
+
+font-0 = "InconsolataGo Nerd Font:size=12;3"
+font-1 = "SF Mono:style=Solid:pixelsize=12;3"
+font-2 = "SF Mono:style=Regular:pixelsize=12;3"
+font-3 = "SF Mono:pixelsize=12;3"
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+fixed-center = true
+padding-left = 2
+padding-right = 2
+module-margin = 1.5
+
+modules-left = memory cpu network
+modules-center = i3
+modules-right = battery volume backlight wifi datetime powermenu
+
+line-size = 3
+
+background = ${colors.transparent}
+foreground = ${colors.xfg}
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = true
+
+label-mode-padding = 0
+label-focused-underline = ${colors.yellow2}
+label-focused-padding-right = 1
+label-unfocused-padding-right = 1
+label-urgent-padding-right = 1
+label-visible-padding-right = 1
+
+[module/datetime]
+type = internal/date
+interval = 1.0
+date =  %H:%M
+date-alt =  %e %B - %A
+label = %date%
+label-foreground = ${colors.magenta}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+poll-interval = 180
+full-at = 95
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+
+format-discharging = %{A1:~/.notify/battery:}<ramp-capacity> <label-discharging>%{A}
+format-full = %{A1:~/.notify/battery:}<ramp-capacity> <label-full>%{A}
+format-charging = %{A1:~/.notify/battery:} <label-charging>%{A}
+format-full-foreground = ${colors.cyan}
+format-charging-foreground = ${colors.cyan}
+format-discharging-foreground = ${colors.cyan}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.green}
+format-muted =  0%
+format-muted-foreground = ${colors.red2}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+format-foreground = ${colors.yellow}
+label = %percentage%%
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/wifi]
+type = internal/network
+interface = wlan0
+interval = 5
+label-connected = %{A1:~/.notify/wifi:}%{A3:nm-connection-editor:} Online%{A}%{A}
+label-connected-foreground = ${colors.blue}
+label-disconnected =  Offline
+label-disconnected-foreground = ${colors.red}
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+label-foreground = ${colors.magenta}
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+label-foreground = ${colors.cyan}
+
+[module/network]
+type = internal/network
+interface = wlan0
+label-connected =  %downspeed% |  %upspeed%
+label-connected-foreground = ${colors.red}
+
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+format-spacing = 1
+label-open = 
+label-open-foreground = ${colors.red2}
+label-close = 
+label-close-foreground = ${colors.red2}
+label-separator = |
+label-separator-foreground = ${colors.red}
+
+menu-0-0 = reboot
+menu-0-0-exec = systemctl reboot
+menu-0-1 = poweroff
+menu-0-1-exec = systemctl poweroff
+menu-0-2 = logout
+menu-0-2-exec = i3-msg exit
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

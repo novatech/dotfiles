@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MSG="Not Connected"
+SSID_NAME=$(/sbin/iwgetid -r)
+if [[ "${SSID_NAME}" != "" ]]; then
+    MSG="Connected to ${SSID_NAME}"
+fi
+
+notify-send "${MSG}"

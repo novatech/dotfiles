@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -m 0 -modi 'run,drun' -show drun

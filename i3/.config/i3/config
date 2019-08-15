@@ -1,0 +1,196 @@
+# mod
+set $mod Mod4
+
+# font
+font pango:InconsolataGo Nerd Font 8
+#font pango:SF Pro Display 12
+#font pango:DejaVuSansMono Nerd Font Mono 11
+
+# thin borders
+hide_edge_borders smart
+
+default_border pixel 0
+default_floating_border pixel 0
+
+# drag windows
+floating_modifier $mod
+
+# default orientation
+default_orientation horizontal
+
+#disable titlebar
+new_window pixel 0
+new_float pixel 0
+
+# no window title
+for_window[class="^.*$"] border pixel 0
+
+# gaps
+gaps inner 10
+gaps outer -1
+# enable gaps only when workspace have more than one container
+smart_gaps on
+
+# smart borders
+smart_borders on
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+
+# lock
+bindsym $mod+l exec i3lock --color 1e2541
+
+# glava
+bindsym $mod+g exec --no-startup-id glava --desktop
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+workspace_auto_back_and_forth yes
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
+set $workspace10 "10 "
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1, workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2, workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3, workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4, workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5, workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6, workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7, workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8, workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9, workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10, workspace $workspace10
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec /home/wea/.config/i3/scripts/exit_menu
+
+# resize window (you can also use the mouse for that)
+# tips: use xmodmap -pke to find existing key mapping
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Escape mode "default"
+    bindsym KP_Enter mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# resize mode
+bindsym $mod+r mode "resize"
+
+set $bg-color               #f02e6e
+set $inactive-bg-color      #f0719b
+set $text-color             #eceae0
+set $inactive-text-color    #eceae0
+set $urgent-bg-color        #c792ea
+set $indicator              #2ce592
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          $indicator
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
+client.background       $a742ea
+
+popup_during_fullscreen smart
+focus_follows_mouse no
+
+# note: user xprop command to find application class name
+# floating
+for_window [window_role="About"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+
+for_window [class="firefox" instance="Navigator"] focus, floating disable
+for_window [class="firefox" instance="Places"] floating enable
+for_window [class="Termite"] focus, border pixel 1
+for_window [class="Pcmanfm"] focus
+for_window [class="Code"] focus
+for_window [class="TelegramDesktop"] focus
+
+
+# default workspaces
+assign [class="Termite"] $workspace1
+assign [class="firefox"] $workspace2
+assign [class="Code"] $workspace4
+assign [class="TelegramDesktop"] $workspace9
+
+# key-bindings
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 1
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1
+bindsym Print exec xfce4-screenshooter -f
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+t exec i3-sensible-terminal
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec --no-startup-id ~/.config/i3/scripts/rofi_app
+bindsym $mod+a exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#1e2541' -nf '#eeffff' -sb '#c792ea' -sf '#eeffff' -fn 'InconsolataGo Nerd Font:bold:pixelsize=26' -l 10"
+
+## startup
+exec --no-startup-id unclutter -b
+exec_always --no-startup-id ~/.config/i3/scripts/startup
+

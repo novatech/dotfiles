@@ -1,0 +1,4 @@
+#!/bin/bash
+
+MSG=$(acpi -b|grep -Eo "(Full|Charging|Discharging).*")
+notify-send "${MSG}"

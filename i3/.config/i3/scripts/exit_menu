@@ -1,0 +1,9 @@
+#!/bin/bash
+while [ "$select" != "CANCEL" -a "$select" != "LOGOUT" -a "$select" != "REBOOT" -a "$select" != "POWEROFF" ]; do
+    select=$(echo -e 'CANCEL\nLOGOUT\nREBOOT\nPOWEROFF' | dmenu -nb '#1e2541' -nf '#eeffff' -sb '#c792ea' -sf '#eeffff' -fn 'InconsolataGo Nerd Font:bold:pixelsize=26' -i -p "Are you sure you want to ...")
+    [ -z "$select" ] && exit 0
+done
+[ "$select" = "NO" ] && exit 0
+[ "$select" = "LOGOUT" ] && i3-msg exit
+[ "$select" = "REBOOT" ] && systemctl reboot
+[ "$select" = "POWEROFF" ] && systemctl poweroff
