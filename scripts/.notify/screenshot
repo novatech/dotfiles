@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 == "full" ]]; then
+    SS_FILE_PATH=~/Screenshot-$(date +%s).png
+    maim -u ${SS_FILE_PATH}
+    MSG="Screenshot save to ${SS_FILE_PATH}"
+    echo "${MSG}"
+    notify-send "${MSG}"
+else
+    maim -u -s | xclip -selection clipboard -t image/png
+fi
+
+

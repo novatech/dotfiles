@@ -1,0 +1,57 @@
+[submodule "bundle/fugitive"]
+    path = bundle/fugitive
+    url = http://github.com/tpope/vim-fugitive.git
+[submodule "bundle/dracula-theme"]
+    path = bundle/dracula-theme
+    url = https://github.com/dracula/vim.git
+[submodule "bundle/ctrlp.vim"]
+    path = bundle/ctrlp.vim
+    url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "bundle/airline"]
+    path = bundle/airline
+    url = https://github.com/vim-airline/vim-airline.git
+[submodule "bundle/nerdtree"]
+    path = bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/system-copy"]
+    path = bundle/system-copy
+    url = https://github.com/christoomey/vim-system-copy.git
+[submodule "bundle/test"]
+    path = bundle/test
+    url = https://github.com/janko-m/vim-test.git
+[submodule "bundle/surround"]
+    path = bundle/surround
+    url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/repeat"]
+    path = bundle/repeat
+    url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/goyo"]
+    path = bundle/goyo
+    url = https://github.com/junegunn/goyo.vim.git
+[submodule "bundle/limelight"]
+    path = bundle/limelight
+    url = https://github.com/junegunn/limelight.vim.git
+[submodule "bundle/auto-save"]
+    path = bundle/auto-save
+    url = https://github.com/907th/vim-auto-save.git
+[submodule "bundle/codi"]
+    path = bundle/codi
+    url = https://github.com/metakirby5/codi.vim.git
+[submodule "bundle/editorconfig"]
+    path = bundle/editorconfig
+    url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "bundle/ack"]
+    path = bundle/ack
+    url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/fzf"]
+    path = bundle/fzf
+    url = https://github.com/junegunn/fzf.git
+[submodule "bundle/ale"]
+    path = bundle/ale
+    url = https://github.com/w0rp/ale.git
+[submodule "bundle/unimpaired"]
+    path = bundle/unimpaired
+    url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/typescript"]
+    path = bundle/typescript
+    url = https://github.com/leafgarland/typescript-vim.git

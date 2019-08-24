@@ -1,0 +1,57 @@
+[submodule "nvim/.vim/bundle/fugitive"]
+	path = nvim/.vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "nvim/.vim/bundle/dracula-theme"]
+	path = nvim/.vim/bundle/dracula-theme
+	url = https://github.com/dracula/vim.git
+[submodule "nvim/.vim/bundle/ctrlp.vim"]
+	path = nvim/.vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "nvim/.vim/bundle/airline"]
+	path = nvim/.vim/bundle/airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "nvim/.vim/bundle/nerdtree"]
+	path = nvim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "nvim/.vim/bundle/system-copy"]
+	path = nvim/.vim/bundle/system-copy
+	url = https://github.com/christoomey/vim-system-copy.git
+[submodule "nvim/.vim/bundle/test"]
+	path = nvim/.vim/bundle/test
+	url = https://github.com/janko-m/vim-test.git
+[submodule "nvim/.vim/bundle/surround"]
+	path = nvim/.vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "nvim/.vim/bundle/repeat"]
+	path = nvim/.vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "nvim/.vim/bundle/goyo"]
+	path = nvim/.vim/bundle/goyo
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "nvim/.vim/bundle/limelight"]
+	path = nvim/.vim/bundle/limelight
+	url = https://github.com/junegunn/limelight.vim.git
+[submodule "nvim/.vim/bundle/auto-save"]
+	path = nvim/.vim/bundle/auto-save
+	url = https://github.com/907th/vim-auto-save.git
+[submodule "nvim/.vim/bundle/codi"]
+	path = nvim/.vim/bundle/codi
+	url = https://github.com/metakirby5/codi.vim.git
+[submodule "nvim/.vim/bundle/editorconfig"]
+	path = nvim/.vim/bundle/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "nvim/.vim/bundle/ack"]
+	path = nvim/.vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "nvim/.vim/bundle/fzf"]
+	path = nvim/.vim/bundle/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "nvim/.vim/bundle/ale"]
+	path = nvim/.vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "nvim/.vim/bundle/unimpaired"]
+	path = nvim/.vim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "nvim/.vim/bundle/typescript"]
+	path = nvim/.vim/bundle/typescript
+	url = https://github.com/leafgarland/typescript-vim.git
