@@ -8,5 +8,5 @@ _restart()
     disown
 }
 
-_restart compton
+_restart picom
 _restart polybar bar
