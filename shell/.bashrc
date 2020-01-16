@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# load custom setting that not suppose to be commit
+[ -f ~/.custom ] && source ~/.custom
+
 shopt -s checkhash checkwinsize
 shopt -s dotglob extglob nocaseglob
 shopt -s huponexit checkjobs

@@ -1,7 +1,3 @@
-[user]
-    name = novatech
-    email = azwan.ali@pm.me
-    signingkey = FCC0806FE0313C80
 [commit]
     gpgSign = true
 [core]
