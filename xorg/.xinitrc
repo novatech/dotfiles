@@ -12,7 +12,7 @@ xset -b &
 # wallpaper
 hsetroot -fill ~/.xwallpaper &
 
-xset dpms 300 &
+xset dpms 600 &
 xss-lock -- i3lock --color 1e2541 &
 
 # read Xresources when exists
