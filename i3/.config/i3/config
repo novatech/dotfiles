@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # font
-font pango:DejaVu Sans Mono 8
+font pango:DejaVuSansMono Nerd Font Mono 10
 
 # thin borders
 hide_edge_borders smart
@@ -69,16 +69,29 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 workspace_auto_back_and_forth yes
-set $workspace1 "1 "
-set $workspace2 "2 "
-set $workspace3 "3 "
-set $workspace4 "4 "
-set $workspace5 "5 "
-set $workspace6 "6 "
-set $workspace7 "7 "
-set $workspace8 "8 "
-set $workspace9 "9 "
-set $workspace10 "10 "
+#set $workspace1 "1:"
+#set $workspace2 "2:"
+#set $workspace2 "2:"
+#set $workspace3 "3:"
+#set $workspace4 "4:"
+#set $workspace5 "5:"
+#set $workspace6 "6:"
+#set $workspace7 "7:"
+#set $workspace8 "8:"
+#set $workspace9 "9:"
+#set $workspace10 "10:"
+
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1, workspace $workspace1
@@ -143,7 +156,7 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
-client.background       $a742ea
+client.background       #a742ea
 
 popup_during_fullscreen smart
 focus_follows_mouse no
@@ -166,10 +179,12 @@ for_window [class="TelegramDesktop"] focus
 # default workspaces
 assign [class="Termite"] $workspace1
 assign [class="firefox"] $workspace2
+assign [class="Google-chrome"] $workspace2
 assign [class="code-oss"] $workspace4
 assign [class="TelegramDesktop"] $workspace9
 
 # key-bindings
+set $current-browser google-chrome-stable
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
@@ -182,11 +197,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 1
 bindsym XF86PowerOff exec --no-startup-id ~/.config/i3/scripts/exit_menu
 bindsym Print exec --no-startup-id ~/.notify/screenshot full
 bindsym Control+Print exec --no-startup-id ~/.notify/screenshot
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec $current-browser
 bindsym $mod+Shift+t exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id ~/.config/i3/scripts/rofi_app
-bindsym $mod+a exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#1e2541' -nf '#eeffff' -sb '#c792ea' -sf '#eeffff' -fn 'InconsolataGo Nerd Font:bold:pixelsize=26' -l 10"
+bindsym $mod+a exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nb '#1e2541' -nf '#eeffff' -sb '#c792ea' -sf '#eeffff' -fn 'DejaVuSansMono Nerd Font:bold:pixelsize=18' -l 10"
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
