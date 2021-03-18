@@ -18,7 +18,7 @@ urgent_on_bell = true
 scrollback_lines = 10000
 cursor_blink = off
 cursor_shape = block
-font = DejaVuSansMono Nerd Font Mono 10
+font = DejaVuSansMono Nerd Font Mono 12
 
 [colors]
 # special

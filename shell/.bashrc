@@ -95,6 +95,14 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 
+#DPI/Scaling
+#export DPI_SCALE=0.875 #when we use dpi = 84
+export DPI_SCALE=1
+export GDK_SCALE=$DPI_SCALE
+export GDK_DPI_SCALE=$DPI_SCALE
+export ELM_SCALE=$DPI_SCALE
+export QT_SCREEN_SCALE_FACTORS=$DPI_SCALE
+
 export PATH="$HOME/.notify:$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 

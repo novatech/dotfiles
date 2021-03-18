@@ -1,6 +1,6 @@
-set mainfont {{DejaVuSansMono Nerd Font} 11}
-set textfont {{DejaVuSansMono Nerd Font Mono} 9}
-set uifont {{DejaVuSansMono Nerd Font} 11 bold}
+set mainfont {{DejaVuSansMono Nerd Font} 12}
+set textfont {{DejaVuSansMono Nerd Font Mono} 10
+set uifont {{DejaVuSansMono Nerd Font} 12 bold}
 set tabstop 8
 set findmergefiles 0
 set maxgraphpct 50
