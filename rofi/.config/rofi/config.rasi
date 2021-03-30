@@ -2,7 +2,7 @@ configuration {
     modi: "combi,windowcd,run";
     lines: 10;
     columns: 2;
-    font: "pango: DejaVuSansMono Nerd Font Mono 12";
+    font: "pango: DejaVuSansMono Nerd Font Mono 10";
     bw: 0;
     location: 0;
     padding: 0;
