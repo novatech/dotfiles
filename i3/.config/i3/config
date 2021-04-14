@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # font
-font pango:DejaVuSansMono Nerd Font Mono 10
+font DejaVuSansMono Nerd Font 10
 
 # thin borders
 hide_edge_borders smart
