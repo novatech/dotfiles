@@ -10,3 +10,4 @@ _restart()
 
 _restart picom
 _restart polybar bar
+_restart /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

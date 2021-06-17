@@ -171,6 +171,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="firefox" instance="Navigator"] focus, floating disable
 for_window [class="firefox" instance="Places"] floating enable
 for_window [class="Termite"] focus, border pixel 1
+for_window [class="Alacritty"] focus, border pixel 1
 for_window [class="Pcmanfm"] focus
 for_window [class="code-oss"] focus
 for_window [class="TelegramDesktop"] focus
@@ -178,6 +179,7 @@ for_window [class="TelegramDesktop"] focus
 
 # default workspaces
 assign [class="Termite"] $workspace1
+assign [class="Alacritty"] $workspace1
 assign [class="firefox"] $workspace2
 assign [class="Google-chrome"] $workspace2
 assign [class="code-oss"] $workspace4

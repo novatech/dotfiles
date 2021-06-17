@@ -118,3 +118,5 @@ man() {
         man "$@"
     }
 
+unset COLUMNS
+unset LINES
