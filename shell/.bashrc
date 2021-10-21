@@ -120,3 +120,5 @@ man() {
 
 unset COLUMNS
 unset LINES
+
+alias luamake=/home/wea/.config/nvim/ls/lua-language-server/3rd/luamake/luamake
