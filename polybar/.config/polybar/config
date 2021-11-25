@@ -51,7 +51,7 @@ module-margin = 1
 modules-left = memory cpu network
 modules-center = i3
 #modules-right = battery volume backlight wifi datetime powermenu
-modules-right = bluetooth volume datetime powermenu
+modules-right = bluetooth volume popup-calendar powermenu
 
 line-size = 3
 
@@ -98,6 +98,15 @@ date =  %H:%M
 date-alt =  %e %B - %A
 label = %date%
 label-foreground = ${colors.magenta}
+click-left = ~/.config/i3/scripts/popup-calendar.sh --popup &
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/i3/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/i3/scripts/popup-calendar.sh --popup &
+label-foreground = ${colors.magenta}
+
 
 [module/battery]
 type = internal/battery

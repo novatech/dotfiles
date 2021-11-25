@@ -10,10 +10,10 @@ shopt -s huponexit checkjobs
 shopt -s cmdhist histappend histverify
 
 codi() {
-  local syntax="${1:-python}"
-  shift
-  vim -c \
-    "let g:startify_disable_at_vimenter = 1 |\
+    local syntax="${1:-python}"
+    shift
+    vim -c \
+        "let g:startify_disable_at_vimenter = 1 |\
     set bt=nofile ls=0 noru nonu nornu |\
     hi ColorColumn ctermbg=NONE |\
     hi VertSplit ctermbg=NONE |\
@@ -28,7 +28,7 @@ fi
 export TERM=xterm-256color
 
 function git_prompt() {
-    local output;
+    local output
     output="$(git branch 2>/dev/null | perl -ne '/^\* (.*)/ && print $1')"
     [ "$output" ] && printf " \[\033[0;31m\]\\uf126 $output"
 }
@@ -103,9 +103,8 @@ export GDK_DPI_SCALE=$DPI_SCALE
 export ELM_SCALE=$DPI_SCALE
 export QT_SCREEN_SCALE_FACTORS=$DPI_SCALE
 
-export PATH="$HOME/.notify:$HOME/.node_modules/bin:$PATH"
+export PATH="$HOME/.notify:$HOME/.node_modules/bin:/home/wea/.local/bin:$PATH"
 export npm_config_prefix=~/.node_modules
-
 
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
@@ -116,9 +115,11 @@ man() {
         LESS_TERMCAP_ue=$'\E[0m' \
         LESS_TERMCAP_us=$'\E[04;38;5;146m' \
         man "$@"
-    }
+}
 
 unset COLUMNS
 unset LINES
 
 alias luamake=/home/wea/.config/nvim/ls/lua-language-server/3rd/luamake/luamake
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
