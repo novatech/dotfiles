@@ -10,10 +10,10 @@ shopt -s huponexit checkjobs
 shopt -s cmdhist histappend histverify
 
 codi() {
-    local syntax="${1:-python}"
-    shift
-    vim -c \
-        "let g:startify_disable_at_vimenter = 1 |\
+  local syntax="${1:-python}"
+  shift
+  vim -c \
+    "let g:startify_disable_at_vimenter = 1 |\
     set bt=nofile ls=0 noru nonu nornu |\
     hi ColorColumn ctermbg=NONE |\
     hi VertSplit ctermbg=NONE |\
@@ -22,19 +22,19 @@ codi() {
 }
 
 if [[ $TERM == xterm-termite ]]; then
-    . /etc/profile.d/vte.sh
-    __vte_prompt_command
+  . /etc/profile.d/vte.sh
+  __vte_prompt_command
 fi
 export TERM=xterm-256color
 
 function git_prompt() {
-    local output
-    output="$(git branch 2>/dev/null | perl -ne '/^\* (.*)/ && print $1')"
-    [ "$output" ] && printf " \[\033[0;31m\]\\uf126 $output"
+  local output
+  output="$(git branch 2>/dev/null | perl -ne '/^\* (.*)/ && print $1')"
+  [ "$output" ] && printf " \[\033[0;31m\]\\uf126 $output"
 }
 
 function prompt_command() {
-    PS1="\[\033[0;37m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[\[\033[0;33m\]\u\[\033[0;37m\]:\[\033[0;96m\]\h\[\033[0;37m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;37m\]]$(git_prompt)\n\[\033[0;37m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]"
+  PS1="\[\033[0;37m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[\[\033[0;33m\]\u\[\033[0;37m\]:\[\033[0;96m\]\h\[\033[0;37m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;37m\]]$(git_prompt)\n\[\033[0;37m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]"
 }
 
 PROMPT_COMMAND="prompt_command"
@@ -50,17 +50,20 @@ history -a
 
 # enable vi mode
 set -o vi
+#disable 'v' from opening an editor
+bind -m vi-command '"v": ""'
+bind -m vi-command '"\C-e": edit-and-execute-command'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -h --group-directories-first'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto -h --group-directories-first'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 
-    alias grep='grep -n --color=auto'
-    alias fgrep='fgrep -n --color=auto'
-    alias egrep='egrep -n --color=auto'
+  alias grep='grep -n --color=auto'
+  alias fgrep='fgrep -n --color=auto'
+  alias egrep='egrep -n --color=auto'
 fi
 
 # some more ls aliases
@@ -81,7 +84,7 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 # GPG start
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 export GPG_TTY=$(tty)
@@ -107,14 +110,14 @@ export PATH="$HOME/.notify:$HOME/.node_modules/bin:/home/wea/.local/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-        LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-        LESS_TERMCAP_me=$'\E[0m' \
-        LESS_TERMCAP_se=$'\E[0m' \
-        LESS_TERMCAP_so=$'\E[38;5;246m' \
-        LESS_TERMCAP_ue=$'\E[0m' \
-        LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-        man "$@"
+  env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
 }
 
 unset COLUMNS

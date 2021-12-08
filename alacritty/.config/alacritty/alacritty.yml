@@ -3,11 +3,21 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: SF Mono
+    family: "Source Code Pro Medium"
+    style: Regular
+  bold:
+    family: "Source Code Pro Medium"
+    style: Bold
+  italic:
+    family: "Source Code Pro Medium"
+    style: Italic
+  bold_italic:
+    family: "Source Code Pro Medium"
+    style: Bold Italic
   size: 10.0
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
@@ -22,13 +32,14 @@ cursor:
     shape: Block
     blinking: Off
   thickness: 0.30
-#####
+env:
+  TERM: alacritty
 window:
   padding:
     x: 0
     y: 0
-  decorations: "None"
+  decorations: full
   dynamic_title: true
-live_config_reload: true
 mouse:
   hide_when_typing: true
+live_config_reload: true

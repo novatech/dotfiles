@@ -35,7 +35,8 @@ override-redirect = false
 dpi-x = 96
 dpi-y = 96
 
-font-0 = "DejaVuSansMonoNerdFont:pixelsize=10;4"
+font-0 = "Source Code Pro Medium:pixelsize=10;4"
+#font-0 = "DejaVuSansMonoNerdFont:pixelsize=10;4"
 font-1 = "DejaVuSansMonoNerdFont:style=Solid:pixelsize=10;4"
 font-2 = "DejaVuSansMonoNerdFont:style=Regular:pixelsize=10;4"
 font-3 = "DejaVuSansMonoNerdFont:pixelsize=10;4"
