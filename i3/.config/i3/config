@@ -24,8 +24,8 @@ new_float pixel 0
 for_window[class="^.*$"] border pixel 0
 
 # gaps
-gaps inner 10
-gaps outer -1
+gaps inner 7
+gaps outer -6
 
 # enable gaps only when workspace have more than one container
 smart_gaps on
@@ -81,17 +81,16 @@ workspace_auto_back_and_forth yes
 #set $workspace9 "9:"
 #set $workspace10 "10:"
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+#set $workspace1 1
+set $workspace2 2
+set $workspace3 3
+set $workspace4 4
+set $workspace5 5
+set $workspace6 6
+set $workspace7 7
+set $workspace8 8
+set $workspace9 9
+set $workspace10 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1, workspace $workspace1
