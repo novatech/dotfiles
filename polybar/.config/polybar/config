@@ -21,7 +21,9 @@ transparent = #ee1e2541
 
 [bar/bar]
 width = 100%
-height = 30
+height = 34
+offset-x = 0%
+offset-y = 0%
 border-size = 0
 bottom = false
 monitor =
@@ -30,27 +32,28 @@ monitor-exact = true
 wm-restack = i3
 override-redirect = false
 
-#dpi-x = 84
-#dpi-y = 84
+enable-ipc = true
+
 dpi-x = 96
 dpi-y = 96
 
-font-0 = "Source Code Pro Medium:pixelsize=10;4"
+font-0 = "Source Code Pro Medium:pixelsize=10;3"
 #font-0 = "DejaVuSansMonoNerdFont:pixelsize=10;4"
-font-1 = "DejaVuSansMonoNerdFont:style=Solid:pixelsize=10;4"
-font-2 = "DejaVuSansMonoNerdFont:style=Regular:pixelsize=10;4"
-font-3 = "DejaVuSansMonoNerdFont:pixelsize=10;4"
+font-1 = "DejaVuSansMonoNerdFont:style=Solid:pixelsize=10;3"
+font-2 = "DejaVuSansMonoNerdFont:style=Regular:pixelsize=10;3"
+font-3 = "DejaVuSansMonoNerdFont:pixelsize=10;3"
+font-4 = "feather:size=10;3"
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 fixed-center = true
-padding-left = 1
-padding-right = 1
+padding-left = 1.5
+padding-right = 2
 module-margin = 1
 
-modules-left = memory cpu network
-modules-center = i3
+modules-left = launcher memory cpu network
+modules-center = workspaces
 #modules-right = battery volume backlight wifi datetime powermenu
 modules-right = bluetooth volume popup-calendar powermenu
 
@@ -58,6 +61,13 @@ line-size = 3
 
 background = ${colors.transparent}
 foreground = ${colors.xfg}
+
+[module/launcher]
+type = custom/text
+content = 﩯
+content-foreground = ${colors.green2}
+click-left = ~/.config/i3/scripts/rofi_app &
+click-right = ~/.config/i3/scripts/rofi_app &
 
 [module/i3]
 type = internal/i3
@@ -91,6 +101,41 @@ label-focused-padding = 1
 label-unfocused-padding = 1
 label-urgent-padding = 1
 label-visible-padding = 1
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-default = 
+
+format = <label-state>
+format-padding = 0
+
+label-monitor = %name%
+
+label-active = %icon%
+label-active-foreground = ${colors.magenta}
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.cyan}
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+
+label-empty = %icon%
+label-empty-foreground = ${colors.xfg}
+
+label-active-padding = 1
+label-occupied-padding = 1
+label-urgent-padding = 1
+label-empty-padding = 1
 
 [module/datetime]
 type = internal/date
@@ -141,6 +186,8 @@ format-foreground = ${colors.magenta}
 
 [module/volume]
 type = internal/pulseaudio
+use-ui-max = false
+interval = 5
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.green}
 format-muted =  0%
@@ -170,11 +217,13 @@ label-disconnected-foreground = ${colors.red}
 
 [module/cpu]
 type = internal/cpu
-label =  %percentage%%
+interval = 2
+label =   %percentage-cores%
 label-foreground = ${colors.magenta}
 
 [module/memory]
 type = internal/memory
+interval = 2
 label =  %gb_used%
 label-foreground = ${colors.cyan}
 
@@ -203,10 +252,16 @@ menu-0-2 = logout
 menu-0-2-exec = i3-msg exit
 
 [settings]
-screenchange-reload = true
+screenchange-reload = false
+throttle-output = 5
+throttle-output-for = 10
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+pseudo-transparency = false
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-; vim:ft=dosini
