@@ -181,8 +181,8 @@ for_window [class="TelegramDesktop"] focus
 # default workspaces
 assign [class="Termite"] $workspace1
 assign [class="Alacritty"] $workspace1
-assign [class="firefox"] $workspace2
 assign [class="Google-chrome"] $workspace2
+assign [class="firefox"] $workspace3
 assign [class="Code"] $workspace4
 assign [class="TelegramDesktop"] $workspace9
 
