@@ -26,7 +26,6 @@ colors:
   cursor:
     cursor: "#7e57c2"
     text: CellBackground
-background_opacity: 0.8
 cursor:
   style:
     shape: Block
@@ -35,6 +34,7 @@ cursor:
 env:
   TERM: alacritty
 window:
+  opacity: 0.8
   padding:
     x: 0
     y: 0
